@@ -22,9 +22,24 @@ INSERT INTO tb_resource (title, description, position, img_uri, type, offer_id) 
 INSERT INTO tb_resource (title, description, position, img_uri, type, offer_id) VALUES ('Forum', 'Post your question', 2, 'https://pt.wikipedia.org/wiki/Ficheiro:HTML5_logo_and_wordmark.svg', 2, 1);
 INSERT INTO tb_resource (title, description, position, img_uri, type, offer_id) VALUES ('Lives', 'Exclusive live lessons', 3, 'https://pt.wikipedia.org/wiki/Ficheiro:HTML5_logo_and_wordmark.svg', 0, 1);
 
-INSERT INTO tb_section (title, description, position, img_uri, resource_id, prerequisite_id) VALUES ('Lesson 1', 'Let''s get started', 1, 'https://pt.wikipedia.org/wiki/Ficheiro:HTML5_logo_and_wordmark.svg', 1, null);
-INSERT INTO tb_section (title, description, position, img_uri, resource_id, prerequisite_id) VALUES ('Lesson 2', 'Special content', 2, 'https://pt.wikipedia.org/wiki/Ficheiro:HTML5_logo_and_wordmark.svg', 1, 1);
-INSERT INTO tb_section (title, description, position, img_uri, resource_id, prerequisite_id) VALUES ('Lesson 3', 'Wrapping up', 3, 'https://pt.wikipedia.org/wiki/Ficheiro:HTML5_logo_and_wordmark.svg', 1, 2);
+INSERT INTO tb_section (title, description, position, img_uri, resource_id, prerequisite_id) VALUES ('Chapter 1', 'Let''s get started', 1, 'https://pt.wikipedia.org/wiki/Ficheiro:HTML5_logo_and_wordmark.svg', 1, null);
+INSERT INTO tb_section (title, description, position, img_uri, resource_id, prerequisite_id) VALUES ('Chapter 2', 'Special content', 2, 'https://pt.wikipedia.org/wiki/Ficheiro:HTML5_logo_and_wordmark.svg', 1, 1);
+INSERT INTO tb_section (title, description, position, img_uri, resource_id, prerequisite_id) VALUES ('Chapter 3', 'Wrapping up', 3, 'https://pt.wikipedia.org/wiki/Ficheiro:HTML5_logo_and_wordmark.svg', 1, 2);
 
 INSERT INTO tb_enrollment (user_id, offer_id, enroll_moment, refund_moment, available, only_update) VALUES (1, 1, TIMESTAMP WITH TIME ZONE '2020-11-20T13:00:00Z', null, true, false);
 INSERT INTO tb_enrollment (user_id, offer_id, enroll_moment, refund_moment, available, only_update) VALUES (2, 1, TIMESTAMP WITH TIME ZONE '2020-11-20T13:00:00Z', null, true, false);
+
+INSERT INTO tb_lesson (title, position, section_id) VALUES ('Chapter 1 - Lesson 1', 1, 1);
+INSERT INTO tb_content (id, text_content, video_uri) VALUES (1, 'Support Material: [...]', 'https://www.youtube.com/watch?v=tKKWBcYW19I');
+
+INSERT INTO tb_lesson (title, position, section_id) VALUES ('Chapter 1 - Lesson 2', 2, 1);
+INSERT INTO tb_content (id, text_content, video_uri) VALUES (2, '', 'https://www.youtube.com/watch?v=tKKWBcYW19I');
+
+INSERT INTO tb_lesson (title, position, section_id) VALUES ('Chapter 1 - Lesson 3', 3, 1);
+INSERT INTO tb_content (id, text_content, video_uri) VALUES (3, '', 'https://www.youtube.com/watch?v=tKKWBcYW19I');
+
+INSERT INTO tb_lesson (title, position, section_id) VALUES ('Chapter 1 - Task 1', 4, 1);
+INSERT INTO tb_task (id, description, question_count, approval_count, weight, due_date) VALUES (4, 'Write your first HTML page', 5, 4, 1.0, TIMESTAMP WITH TIME ZONE '2020-11-25T03:00:00Z');
+
+INSERT INTO tb_lessons_done (lesson_id, user_id, offer_id) VALUES (1, 1, 1);
+INSERT INTO tb_lessons_done (lesson_id, user_id, offer_id) VALUES (2, 1, 1);
