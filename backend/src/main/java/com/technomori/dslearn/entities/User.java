@@ -94,6 +94,10 @@ public class User implements UserDetails, Serializable {
 		return notifications;
 	}
 
+	public boolean hasRole(String roleName) {
+		return roles.stream().anyMatch(role -> roleName.equals(role.getAuthority()));
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
